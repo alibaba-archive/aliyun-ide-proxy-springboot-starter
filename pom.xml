@@ -6,10 +6,10 @@
 
     <groupId>com.alibaba.dataworks</groupId>
     <artifactId>aliyun-ide-proxy-springboot-starter</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
     <description>ide-proxy</description>
-    <url>https://github.com/gengu/aliyun-ide-proxy-springboot-starter</url>
+    <url>https://github.com/aliyun/aliyun-ide-proxy-springboot-starter</url>
 
     <parent>
 		<groupId>org.sonatype.oss</groupId>
@@ -37,7 +37,7 @@
 	</developers>
 
     <scm>
-		<url>https://github.com/gengu/aliyun-ide-proxy-springboot-starter</url>
+		<url>https://github.com/aliyun/aliyun-ide-proxy-springboot-starter</url>
 	</scm>
 
     <properties>
