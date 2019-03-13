@@ -1,9 +1,9 @@
 package com.aliyun.dataworks.ide.proxy;
 
-import com.alibaba.dataworks.dataservice.model.api.protocol.ApiProtocol;
-import com.alibaba.dataworks.dataservice.sdk.facade.DataApiClient;
-import com.alibaba.dataworks.dataservice.sdk.loader.http.Request;
-import com.alibaba.dataworks.dataservice.sdk.loader.http.enums.Method;
+import com.aliyun.dataworks.dataservice.model.api.protocol.ApiProtocol;
+import com.aliyun.dataworks.dataservice.sdk.facade.DataApiClient;
+import com.aliyun.dataworks.dataservice.sdk.loader.http.Request;
+import com.aliyun.dataworks.dataservice.sdk.loader.http.enums.Method;
 import com.aliyun.dataworks.ide.proxy.common.Result;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

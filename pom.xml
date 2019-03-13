@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.alibaba.dataworks</groupId>
+    <groupId>com.aliyun.dataworks</groupId>
     <artifactId>aliyun-ide-proxy-springboot-starter</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <description>ide-proxy</description>
     <url>https://github.com/aliyun/aliyun-ide-proxy-springboot-starter</url>
@@ -78,9 +78,9 @@
             <version>1.16.16</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.dataworks</groupId>
-            <artifactId>data-service-client</artifactId>
-            <version>1.1.0</version>
+            <groupId>com.aliyun.dataworks</groupId>
+            <artifactId>aliyun-data-service-sdk</artifactId>
+            <version>0.0.1-aliyun-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -114,4 +114,14 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 </project>

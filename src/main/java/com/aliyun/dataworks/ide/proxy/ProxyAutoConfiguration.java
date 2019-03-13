@@ -1,8 +1,8 @@
 package com.aliyun.dataworks.ide.proxy;
 
-import com.alibaba.dataworks.dataservice.sdk.common.BeanRegistryProcessor;
-import com.alibaba.dataworks.dataservice.sdk.facade.DataApiClient;
-import com.alibaba.dataworks.dataservice.sdk.loader.http.util.DataServiceHttpClient;
+import com.aliyun.dataworks.dataservice.sdk.common.BeanRegistryProcessor;
+import com.aliyun.dataworks.dataservice.sdk.facade.DataApiClient;
+import com.aliyun.dataworks.dataservice.sdk.loader.http.util.DataServiceHttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
