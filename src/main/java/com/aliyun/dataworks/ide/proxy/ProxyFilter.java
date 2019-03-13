@@ -97,7 +97,7 @@ public class ProxyFilter extends OncePerRequestFilter {
         request.setHost(proxyProperties.getHost());
         request.setPath(apiPath);
         request.setApiProtocol(ApiProtocol.HTTP);
-        return new Request();
+        return request ;
     }
 
     /**
