@@ -3,7 +3,7 @@ package com.aliyun.dataworks.ide.proxy;
 import com.aliyun.dataworks.dataservice.model.api.protocol.ApiProtocol;
 import com.aliyun.dataworks.dataservice.sdk.facade.DataApiClient;
 import com.aliyun.dataworks.dataservice.sdk.loader.http.Request;
-import com.aliyun.dataworks.dataservice.sdk.loader.http.enums.Method;
+import com.aliyun.dataworks.dataservice.common.http.constant.HttpMethod;
 import com.aliyun.dataworks.ide.proxy.common.Result;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -58,7 +58,7 @@ public class ProxyFilter extends OncePerRequestFilter {
             }
         });
         dsRequest.getQuerys().putAll(requestParams);
-        if (method.toUpperCase().equals(Method.POST.name())) {
+        if (method.toUpperCase().equals(HttpMethod.POST)) {
             JSONObject requestBody = JSON.parseObject(IOUtils.toString(request.getInputStream(), StandardCharsets.UTF_8.name()));
             for (Map.Entry<String, Object> item : requestBody.entrySet()) {
                 dsRequest.getBodys().put(item.getKey(), item.getValue());
@@ -91,7 +91,7 @@ public class ProxyFilter extends OncePerRequestFilter {
      */
     private Request generateRequest(String method , String apiPath){
         Request request = new Request() ;
-        request.setMethod(method.toUpperCase().equals(Method.POST.name()) ? Method.POST : Method.GET);
+        request.setMethod(method.toUpperCase().equals(HttpMethod.POST) ? HttpMethod.POST : HttpMethod.GET);
         request.setAppKey(proxyProperties.getAppKey());
         request.setAppSecret(proxyProperties.getAppSecret());
         request.setHost(proxyProperties.getHost());

@@ -80,7 +80,7 @@
         </dependency>
         <dependency>
             <groupId>com.aliyun.dataworks</groupId>
-            <artifactId>aliyun-data-service-sdk</artifactId>
+            <artifactId>aliyun-dataworks-dataservice-java-sdk</artifactId>
             <version>${aliyun.dataservice.sdk}</version>
         </dependency>
         <dependency>
