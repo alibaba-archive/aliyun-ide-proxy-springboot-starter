@@ -6,7 +6,7 @@
 
     <groupId>com.aliyun.dataworks</groupId>
     <artifactId>aliyun-ide-proxy-springboot-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
     <description>ide-proxy</description>
     <url>https://github.com/aliyun/aliyun-ide-proxy-springboot-starter</url>
@@ -45,6 +45,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<spring-boot.version>1.5.12.RELEASE</spring-boot.version>
+        <aliyun.dataservice.sdk>0.0.1-aliyun</aliyun.dataservice.sdk>
 	</properties>
 
     <dependencyManagement>
@@ -80,7 +81,7 @@
         <dependency>
             <groupId>com.aliyun.dataworks</groupId>
             <artifactId>aliyun-data-service-sdk</artifactId>
-            <version>0.0.2-aliyun-SNAPSHOT</version>
+            <version>${aliyun.dataservice.sdk}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -103,6 +104,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
