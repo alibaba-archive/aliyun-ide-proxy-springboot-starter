@@ -48,6 +48,7 @@ public class ProxyFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException {
+
         String apiPath = request.getParameter(DS_API_PATH) ;
         String method = request.getParameter(DS_API_METHOD) ;
         Request dsRequest = generateRequest(method , apiPath);

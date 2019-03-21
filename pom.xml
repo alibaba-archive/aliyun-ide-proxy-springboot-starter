@@ -6,7 +6,7 @@
 
     <groupId>com.aliyun.dataworks</groupId>
     <artifactId>aliyun-ide-proxy-springboot-starter</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
     <description>ide-proxy</description>
     <url>https://github.com/aliyun/aliyun-ide-proxy-springboot-starter</url>
