@@ -29,6 +29,10 @@ public class Result<T> implements Serializable{
 
     private String sessionId ;
 
+    public static String defaultError =
+        "Please check the necessary property [ ide.proxy.data.service.host, ide.proxy.data.service.appKey, ide.proxy.data.service.appSecret ], \n"
+        + "In general, the lack of these configurations can make the interface inaccessible. " ;
+
     public Result() {
         timestamp = System.currentTimeMillis() ;
     }
@@ -59,6 +63,15 @@ public class Result<T> implements Serializable{
      */
     public static Result ofError(String msg , String sessionId){
         return of(msg , Code.ERROR.code , null , false ,sessionId) ;
+    }
+
+    /**
+     * 返回一个包含默认错误信息的Result
+     *
+     * @return
+     */
+    public static Result ofDefaultError(){
+        return ofError(defaultError);
     }
 
     /**

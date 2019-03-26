@@ -8,6 +8,7 @@ import com.aliyun.dataworks.ide.proxy.common.Result;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -75,9 +76,15 @@ public class ProxyFilter extends OncePerRequestFilter {
             response.getOutputStream().write(JSONObject.toJSONString(payload).getBytes());
             response.setStatus(HttpServletResponse.SC_OK);
         } catch (Exception exception) {
-            logger.error("aliyun.ide.proxy.error" , exception);
+            logger.error("aliyun.ide.proxy.error : " , exception);
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.getOutputStream().write(JSONObject.toJSONString(Result.ofError(exception.getMessage())).getBytes());
+            if(StringUtils.isEmpty(exception.getMessage())){
+                response.getOutputStream().write(JSONObject.toJSONString(Result.ofDefaultError()).getBytes());
+                logger.error(Result.defaultError);
+            }else {
+                response.getOutputStream().write(
+                    JSONObject.toJSONString(Result.ofError(exception.getMessage())).getBytes());
+            }
         }
         response.getOutputStream().flush();
     }
