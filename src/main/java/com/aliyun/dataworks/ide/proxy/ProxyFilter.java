@@ -35,6 +35,7 @@ public class ProxyFilter extends OncePerRequestFilter {
     static String DS_SA_PI_KEY = "dSaPiId";
     static String DS_API_PATH = "dsApiPath" ;
     static String DS_API_METHOD = "dsApiMethod" ;
+    static String DS_HOST = "dsHost" ;
     static String DS_CONTENT_TYPE = "application/json";
     static String ERROR_CODE = "errCode" ;
 
@@ -52,7 +53,8 @@ public class ProxyFilter extends OncePerRequestFilter {
 
         String apiPath = request.getParameter(DS_API_PATH) ;
         String method = request.getParameter(DS_API_METHOD) ;
-        Request dsRequest = generateRequest(method , apiPath);
+        String dsHost = request.getParameter(DS_HOST) ;
+        Request dsRequest = generateRequest(method , apiPath , dsHost);
         HashMap<String, String> requestParams = new HashMap<>(8);
         request.getParameterMap().forEach((k , v) -> {
             if (isCustomParameter(k)) {
@@ -97,12 +99,12 @@ public class ProxyFilter extends OncePerRequestFilter {
      * @param apiPath
      * @return
      */
-    private Request generateRequest(String method , String apiPath){
+    private Request generateRequest(String method , String apiPath , String dsHost){
         Request request = new Request() ;
         request.setMethod(method.toUpperCase().equals(HttpMethod.POST) ? HttpMethod.POST : HttpMethod.GET);
         request.setAppKey(proxyProperties.getAppKey());
         request.setAppSecret(proxyProperties.getAppSecret());
-        request.setHost(proxyProperties.getHost());
+        request.setHost(StringUtils.isNotEmpty(dsHost) ? dsHost : proxyProperties.getHost());
         request.setPath(apiPath);
         request.setApiProtocol(ApiProtocol.HTTP);
         return request ;
