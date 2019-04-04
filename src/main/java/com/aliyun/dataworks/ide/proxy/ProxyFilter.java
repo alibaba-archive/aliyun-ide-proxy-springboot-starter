@@ -39,6 +39,8 @@ public class ProxyFilter extends OncePerRequestFilter {
     static String DS_CONTENT_TYPE = "application/json";
     static String ERROR_CODE = "errCode" ;
 
+    static String[] systemParams = new String[]{DS_SA_PI_KEY,DS_API_PATH,DS_API_METHOD,DS_HOST} ;
+
     ProxyProperties proxyProperties ;
     DataApiClient dataApiClient ;
 
@@ -116,7 +118,7 @@ public class ProxyFilter extends OncePerRequestFilter {
      * @return Boolean
      */
     private static Boolean isCustomParameter(String key){
-        return !Arrays.asList(DS_SA_PI_KEY,DS_API_PATH,DS_API_METHOD).contains(key) ;
+        return !Arrays.asList(systemParams).contains(key) ;
     }
 
 }
